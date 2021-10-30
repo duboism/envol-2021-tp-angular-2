@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    server:
+        build:
+            context: ./server
+            dockerfile: ./Dockerfile.dev
+        ports:
+            - 3000:3000
+        working_dir: /project
+        volumes:
+            - ./server:/project
+        command: npm start
+
+    db:
+        image: mariadb:10.6
+        environment:
+            MARIADB_ROOT_PASSWORD: anderson
+            MARIADB_DATABASE: missions
+        volumes:
+            - mariadata:/var/lib/mysql
+            - ./conf-dev/missions.sql:/docker-entrypoint-initdb.d/missions.sql
+
+    adminer:
+        image: adminer
+        ports:
+            - 8080:8080
+
+    client:
+        build:
+            context: ./client
+            dockerfile: ./Dockerfile.dev
+        ports:
+            - 4200:4200
+        working_dir: /project
+        volumes:
+            - ./client:/project
+        command: ng serve --host=0.0.0.0 --disable-host-check --port 4200
+
+volumes:
+    mariadata:

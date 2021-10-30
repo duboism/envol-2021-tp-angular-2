@@ -1,0 +1,8 @@
+FROM node:16-slim
+
+# Yarn
+RUN yarn global add @angular/cli
+RUN ng config -g cli.packageManager yarn
+RUN ng config -g cli.warnings.versionMismatch false
+
+CMD ["bash"]
