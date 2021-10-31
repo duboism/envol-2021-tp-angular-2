@@ -45,7 +45,7 @@ const login = async (req, res, next) => {
               { expiresIn: '24h' }
             )
           });
-          res.redirect('/');
+          //res.redirect('/');
         }
       });
     }

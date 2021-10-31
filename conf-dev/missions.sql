@@ -2,6 +2,13 @@
 -- Table structure for table `agents`
 --
 
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+SET NAMES utf8mb4;
+
 DROP TABLE IF EXISTS `agents`;
 CREATE TABLE `agents`
 (
@@ -101,4 +108,4 @@ CREATE TABLE `users`
 
 INSERT INTO `users` (`id_user`, `email`, `password`)
 VALUES
-(1, 'admin@envol2021.fr', '$2y$10$lgj2e81t8h/8.r/6MIHEVus8jVVr/Hw1IEZMX1bwya5LsF.g66Bvi');
+(1, 'admin@envol.fr', '$2b$10$5lghZCbm1rQbIK3Dhyp/ZukHf/vufm3wrSlz8xslqg4FlpxuWjhLS'); -- Password test
