@@ -38,7 +38,7 @@ async function addOneMission(data) {
     data.date_to]
   );
 
-  return "Mission created";
+  return {status: "Mission created"};
 };
 
 /* PUT mission */
@@ -60,7 +60,7 @@ async function updateOneMission(data, id_mission) {
     id_mission]
   );
 
-  return "Mission updated";
+  return {status: "Mission updated"};
 };
 
 /* DELETE mission */
@@ -72,7 +72,7 @@ async function deleteOneMission(id_mission) {
     [id_mission]
   );
 
-  return "Mission deleted";
+  return {status: "Mission deleted"};
 };
 
 module.exports = {

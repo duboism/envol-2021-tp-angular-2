@@ -1,6 +1,7 @@
 export interface Agent {
-    firstname: string,
-    lastname: string,
-    status: string,
-    cap: number
+    id_agent: number;
+    firstname: string;
+    lastname: string;
+    status: string;
+    cap: number;
 }

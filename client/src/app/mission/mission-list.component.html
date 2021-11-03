@@ -7,5 +7,8 @@
 
 <ng-container *ngIf="missionService.missionsIsLoaded">
     <a class="btn btn-outline-primary mb-2" role="action"><span class="fas fa-plus"></span> Ajouter une mission</a>
-    <app-mission-list-table [missions]="missionService.missions"></app-mission-list-table>
+    <app-mission-list-table 
+        [missions]="missionService.missions"
+        [agents]="agentService.agents"
+        (deleteMission)="missionService.deleteMission($event)"></app-mission-list-table>
 </ng-container>

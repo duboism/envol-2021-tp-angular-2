@@ -18,14 +18,14 @@
             <td>{{ mission.country }}</td>
             <td>{{ mission.date_from }}</td>
             <td>{{ mission.date_to }}</td>
-            <td>{{ mission.ref_agent }}</td>
+            <td>{{ getFullNameByIdAgent(mission.ref_agent) }}</td>
             <td class="text-center">
                 <a title="Modifier un agent" class="btn btn-outline-primary">
                     <span class="fas fa-edit"></span>
                 </a>
             </td>
             <td class="text-center">
-                <a title="Supprimer un agent" class="btn btn-outline-danger">
+                <a (click)="deleteMission.emit(mission.id_mission)" title="Supprimer un agent" class="btn btn-outline-danger">
                     <span class="fas fa-trash"></span>
                 </a>
             </td>
