@@ -13,4 +13,16 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.loginService.restoreTokenFromLocalStorage();
     }
+
+    getUserToken() {
+        return this.loginService.userToken;
+    }
+
+    logout() {
+        this.loginService.clearTokenFromLocalStorage();
+    }
+
+    getEmail() {
+        return 'admin@envol.fr';
+    }
 }

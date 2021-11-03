@@ -8,3 +8,11 @@
 
 /* Import ngx-toastr bootstrap 4 alert styled design */
 @import '~ngx-toastr/toastr';
+
+.pointer {
+    cursor: pointer;
+}
+
+.red {
+    color: red;
+}

@@ -8,12 +8,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
-import { MissionListComponent } from './mission-list.component';
+import { AgentModule } from './agent/agent.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        MissionListComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -21,6 +20,7 @@ import { MissionListComponent } from './mission-list.component';
         HttpClientModule,
         ToastrModule.forRoot(),
         LoginModule,
+        AgentModule,
         AppRoutingModule
     ],
     providers: [ ],

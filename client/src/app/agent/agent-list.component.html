@@ -1,0 +1,8 @@
+<h1 class="mt-5 mb-5">Liste des agents</h1>
+
+<div *ngIf="agentService.agentsIsLoading">
+    <span class="fas fa-circle-notch fa-spin fa-3x"></span>
+    <span class="sr-only">Loading...</span>
+</div>
+
+<app-agent-list-table *ngIf="agentService.agentsIsLoaded" [agents]="agentService.agents"></app-agent-list-table>
