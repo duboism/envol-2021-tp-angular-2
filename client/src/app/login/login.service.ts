@@ -16,8 +16,25 @@ export class LoginService {
     login(userlogin: UserLogin) {
         this.httpClient.post<UserToken>('http://localhost:3000/users/login', userlogin).subscribe(data => {
             this.userToken = data;
+            this.saveTokenToLocalStorage();
             this.toastr.success('Vous êtes maintenant connecté à l\'application', 'Connexion réussie');
             this.router.navigate(['mission-list']);
         });
+    }
+
+    saveTokenToLocalStorage() {
+        const userTokenJson = JSON.stringify(this.userToken);
+        localStorage.setItem('userToken', userTokenJson);
+    }
+
+    restoreTokenFromLocalStorage() {
+        const userTokenJson = localStorage.getItem('userToken');
+        if (userTokenJson) {
+            this.userToken = JSON.parse(userTokenJson);
+        }
+    }
+
+    clearTokenFromLocalStorage() {
+        localStorage.removeItem('userToken');
     }
 }
