@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { AgentModule } from './agent/agent.module';
+import { MissionModule } from './mission/mission.module';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { AgentModule } from './agent/agent.module';
         ToastrModule.forRoot(),
         LoginModule,
         AgentModule,
+        MissionModule,
         AppRoutingModule
     ],
     providers: [ ],

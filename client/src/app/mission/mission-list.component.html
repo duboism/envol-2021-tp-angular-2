@@ -1,0 +1,11 @@
+<h1 class="mt-5 mb-5">Liste des missions</h1>
+
+<div *ngIf="missionService.missionsIsLoading">
+    <span class="fas fa-circle-notch fa-spin fa-3x"></span>
+    <span class="sr-only">Loading...</span>
+</div>
+
+<ng-container *ngIf="missionService.missionsIsLoaded">
+    <a class="btn btn-outline-primary mb-2" role="action"><span class="fas fa-plus"></span> Ajouter une mission</a>
+    <app-mission-list-table [missions]="missionService.missions"></app-mission-list-table>
+</ng-container>

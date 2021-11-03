@@ -1,0 +1,34 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID Mission</th>
+            <th scope="col">Coût</th>
+            <th scope="col">Pays</th>
+            <th scope="col">Date début</th>
+            <th scope="col">Date fin</th>
+            <th scope="col">Agent</th>
+            <th class="text-center" scope="col">Modifier</th>
+            <th class="text-center" scope="col">Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mission of missions">
+            <th>{{ mission.id_mission }}</th>
+            <td>{{ mission.cost }}</td>
+            <td>{{ mission.country }}</td>
+            <td>{{ mission.date_from }}</td>
+            <td>{{ mission.date_to }}</td>
+            <td>{{ mission.ref_agent }}</td>
+            <td class="text-center">
+                <a title="Modifier un agent" class="btn btn-outline-primary">
+                    <span class="fas fa-edit"></span>
+                </a>
+            </td>
+            <td class="text-center">
+                <a title="Supprimer un agent" class="btn btn-outline-danger">
+                    <span class="fas fa-trash"></span>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
