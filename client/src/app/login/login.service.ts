@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
@@ -19,6 +19,8 @@ export class LoginService {
             this.saveTokenToLocalStorage();
             this.toastr.success('Vous êtes maintenant connecté à l\'application', 'Connexion réussie');
             this.router.navigate(['mission-list']);
+        }, (response: HttpErrorResponse) => {
+            this.toastr.error(response.error, 'Connexion échoué');
         });
     }
 
@@ -36,5 +38,8 @@ export class LoginService {
 
     clearTokenFromLocalStorage() {
         localStorage.removeItem('userToken');
+        this.userToken = null as any;
+        this.router.navigate(['login']);
+        this.toastr.success('Vous êtes maintenant deconnecté de l\'application', 'Deconnexion réussie');
     }
 }
