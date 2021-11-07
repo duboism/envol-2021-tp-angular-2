@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,7 +12,7 @@ export class MissionService {
     missionsIsLoading: boolean = false;
     missionsIsLoaded: boolean = false;
 
-    constructor(private httpClient: HttpClient, private toastr: ToastrService) { }
+    constructor(private httpClient: HttpClient, private toastr: ToastrService, private router: Router) { }
 
     loadMissionList() {
         this.missionsIsLoading = true;
@@ -24,11 +25,17 @@ export class MissionService {
     }
 
     addNewMission(mission: Mission) {
-
+        this.httpClient.post('http://localhost:3000/missions/add', mission).subscribe(data => {
+            this.toastr.success('La mission a bien été créée', 'Mission créée');
+            this.router.navigateByUrl('mission-list');
+        })
     }
     
     editMission(mission: Mission) {
-
+        this.httpClient.put(`http://localhost:3000/missions/update/${mission.id_mission}`, mission).subscribe(data => {
+            this.toastr.success('La mission a bien été éditée', 'Mission éditée');
+            this.router.navigateByUrl('mission-list');
+        });
     }
 
     deleteMission(idMission: number) {

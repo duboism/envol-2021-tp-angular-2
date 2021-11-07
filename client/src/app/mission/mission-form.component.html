@@ -1,0 +1,28 @@
+<form [formGroup]="missionForm" (ngSubmit)="submit()" novalidate>
+    <div class="mb-3 row">
+        <label for="cost">Coût</label>
+        <input type="number" class="form-control" id="cost" name="cost" formControlName="cost">
+    </div>
+    <div class="mb-3 row">
+        <label for="country">Pays</label>
+        <input type="text" class="form-control" id="country" name="country" formControlName="country">
+    </div>
+    <div class="mb-3 row">
+        <label for="date_from">Date début</label>
+        <input type="text" class="form-control" id="date_from" name="date_from" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }" formControlName="date_from" autocomplete="off">
+    </div>
+    <div class="mb-3 row">
+        <label for="date_to">Date fin</label>
+        <input type="text" class="form-control" id="date_to" name="date_to" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', isAnimated: true }" formControlName="date_to" autocomplete="off">
+    </div>
+    <div class="mb-3 row">
+        <label for="ref_agent">Agent</label>
+        <select class="form-select" formControlName="ref_agent">
+            <option></option>
+            <option *ngFor="let agent of agents" [ngValue]="agent.id_agent">{{ agent.firstname }} {{ agent.lastname }}</option>
+        </select>
+    </div>
+    <div class="mb-3 row">
+        <button type="submit" class="btn btn-primary" [disabled]="!missionForm.valid">Submit</button>
+    </div>
+</form>

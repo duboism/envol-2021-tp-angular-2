@@ -1,0 +1,7 @@
+<h1 class="mt-5 mb-5">Editer une mission</h1>
+
+<app-mission-form
+    [mission]="getMission()"
+    [agents]="agentService.agents"
+    (onSubmit)="missionService.editMission($event)">
+</app-mission-form>

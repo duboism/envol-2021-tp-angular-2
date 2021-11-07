@@ -1,0 +1,6 @@
+<h1 class="mt-5 mb-5">Ajouter une nouvelle mission</h1>
+
+<app-mission-form
+    [agents]="agentService.agents"
+    (onSubmit)="missionService.addNewMission($event)">
+</app-mission-form>

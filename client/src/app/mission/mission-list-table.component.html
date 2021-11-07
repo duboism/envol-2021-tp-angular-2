@@ -20,7 +20,7 @@
             <td>{{ mission.date_to }}</td>
             <td>{{ getFullNameByIdAgent(mission.ref_agent) }}</td>
             <td class="text-center">
-                <a title="Modifier un agent" class="btn btn-outline-primary">
+                <a routerLink="/edit-mission/{{ mission.id_mission }}" title="Modifier une mission" class="btn btn-outline-primary">
                     <span class="fas fa-edit"></span>
                 </a>
             </td>
