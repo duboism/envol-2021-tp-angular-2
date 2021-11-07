@@ -4,7 +4,7 @@ const db = require('../services/db');
 async function getAllAgents() {
 
   const results = await db.query(
-    `SELECT firstname, lastname, status, cap
+    `SELECT id_agent, firstname, lastname, status, cap
     FROM agents, status
     WHERE ref_status = id_status;`
   );
